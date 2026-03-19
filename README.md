@@ -30,7 +30,7 @@ video-homography-pipeline/
 │   ├── run_video_overlay.py   # Main pipeline: pre-masked video pairs
 │   └── run_sam2_overlay.py    # End-to-end: SAM2 propagation + overlay
 ├── tests/
-│   └── test_core.py       # Unit tests for geometry + homography + temporal
+│   └── test_pipeline.py       # Unit tests for geometry + homography + temporal
 ├── pyproject.toml
 └── README.md
 ```
@@ -70,14 +70,14 @@ python scripts/run_video_overlay.py \
     tennis-clip.mp4 \
     masked-output.mp4 \
     result.mp4 \
-    --logo sponsor_logo.png
+    --logo data/input/sponsor_logo.png
 
 # With debug overlay showing detected corners
 python scripts/run_video_overlay.py \
     tennis-clip.mp4 \
     masked-output.mp4 \
     result.mp4 \
-    --logo sponsor_logo.png \
+    --logo data/input/sponsor_logo.png \
     --debug
 
 # Fast iteration: first 200 frames, downscaled
@@ -85,7 +85,7 @@ python scripts/run_video_overlay.py \
     tennis-clip.mp4 \
     masked-output.mp4 \
     result.mp4 \
-    --logo sponsor_logo.png \
+    --logo data/input/sponsor_logo.png \
     --max_frames 200 \
     --resize 960x540
 
@@ -107,14 +107,14 @@ No pre-masked video needed — just click where the ad region is:
 python scripts/run_sam2_overlay.py \
     tennis-clip.mp4 \
     result.mp4 \
-    --logo sponsor_logo.png \
+    --logo data/input/sponsor_logo.png \
     --point 1:500,300
 
 # Multiple seed points for the same object
 python scripts/run_sam2_overlay.py \
     tennis-clip.mp4 \
     result.mp4 \
-    --logo sponsor_logo.png \
+    --logo data/input/sponsor_logo.png \
     --point 1:500,300 \
     --point 1:600,350
 ```
